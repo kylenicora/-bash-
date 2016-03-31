@@ -1,0 +1,11 @@
+
+crontab -e
+*/5 * * * * /bin/bash -l /home/mlt/bash/makelogs.sh
+
+
+
+#!/bin/bash
+NOW=$(date +"%Y-%m-%d-%T");
+LOGFILE="s-$NOW.txt";
+cp /var/log/secure /home/mlt/html/logs/$LOGFILE;
+chmod 755 -R /home/mlt/html/logs/*
